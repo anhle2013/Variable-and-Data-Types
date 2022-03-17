@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            display: block;
+            margin-top: 20px;
+            width: 75px;
+            background: purple;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="">Amount</label> <br>
+        <input type="text" id="idAmount">
+
+        <label for="">From</label>
+        <select name="From" id="idFrom">
+            <option value="usd">USD</option>
+            <option value="vnd">VND</option>
+        </select>
+
+        <label for="">To</label>
+        <select name="From" id="idTo">
+            <option value="vnd">VND</option>
+            <option value="usd">USD</option>
+        </select>
+
+        <button id='idCv' onclick="ConvertAmount()" type="button" >Convert</button>
+        <p>Result: <span id="idresult" style="color: blue;"></span> </p>
+    </form>
+</body>
+
+<script>
+   
+
+    function ConvertAmount() {
+        var _amount = parseFloat(document.getElementById("idAmount").value);
+        console.log(_amount);
+
+        var _from = document.getElementById("idFrom").value;
+        var _to = document.getElementById("idTo").value;
+        var KQ
+        if (_from == "vnd" ) {
+            if (_to == 'vnd') {
+                KQ = _amount;
+                document.getElementById("idresult").innerHTML = KQ + " VND";}
+
+            else {
+                KQ = _amount / 23000;
+                document.getElementById("idresult").innerHTML = KQ + " USD";}
+                            }
+                
+        else { 
+            if (_to == 'vnd') {
+                KQ =  _amount * 23000
+                document.getElementById("idresult").innerHTML = KQ + " VND";}
+
+             else {
+                KQ = _amount;
+                document.getElementById("idresult").innerHTML = KQ + " USD";}
+                }
+
+            
+        }
+
+/*     function mouse_over() {
+        document.getElementById('idCv') .style.background='yellow';
+        document.getElementById('idCv') .style.color='white';
+    }
+ */
+</script>
+
+</html>
